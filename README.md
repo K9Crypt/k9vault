@@ -5,6 +5,10 @@
 ## Project Description
 K9Vault is an application that allows users to securely upload and encrypt their photos. The application provides users with a key to encrypt the photos they upload and then allows them to decrypt the photos using that key.
 
+## v0.2 - BETA Update
+- The design has been completely renewed.
+- The password entry section has been removed.
+
 ## Requirements
 - Python 3.x
 - tkinter library

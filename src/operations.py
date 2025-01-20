@@ -12,7 +12,6 @@ def load():
         )
         if path:
             secret_key = "VeryLongSecretKey!@#1234567890"
-            print(f'K9Crypt Encryption Key: {secret_key}')
             asyncio.run(fileEncrypt(path, secret_key))
     except Exception as error:
         print(f'K9Crypt Error: {str(error)}')
