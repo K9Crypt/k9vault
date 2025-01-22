@@ -2,6 +2,8 @@ from pathlib import Path
 from tkinter import Tk, Canvas, Button, PhotoImage
 from src.operations import load, fileDecrypt
 import webbrowser
+import ctypes
+import platform
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./build/assets/frame0")
@@ -16,6 +18,18 @@ window = Tk()
 window.geometry("700x346")
 window.configure(bg = "#121212")
 window.title("K9Vault")
+
+if platform.system() == "Darwin":
+    try:
+        icon = PhotoImage(file=relative_to_assets("./k9crypt.png"))
+        window.iconphoto(True, icon)
+    except Exception as e:
+        print(f"Icon loading error: {e}")
+else:
+    try:
+        window.iconbitmap(relative_to_assets("./k9crypt.ico"))
+    except Exception as e:
+        print(f"Icon loading error: {e}")
 
 canvas = Canvas(
     window,
@@ -72,7 +86,7 @@ canvas.create_text(
     20.0,
     324.0,
     anchor="nw",
-    text="v0.2 - BETA",
+    text="v0.3 - BETA",
     fill="#FFFFFF",
     font=("Outfit Regular", 10 * -1)
 )
